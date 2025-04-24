@@ -149,3 +149,107 @@ output "public_ipLinWeb" {
   description = "IP pública del Linux Web Server"
   value       = aws_instance.Lin_Web.public_ip
 }
+
+
+
+
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+  required_version = ">= 1.0.0"
+}
+
+provider "aws" {
+  region  = var.aws_region
+  # Puedes usar credenciales por defecto (~/.aws/credentials) o variables de entorno:
+  # access_key = var.aws_access_key
+  # secret_key = var.aws_secret_key
+}
+
+variable "aws_region" {
+  description = "Región de AWS donde crear la tabla"
+  type        = string
+  default     = "us-east-1"
+}
+
+variable "table_name" {
+  description = "Nombre de la tabla DynamoDB"
+  type        = string
+  default     = "MiTablaProductos"
+}
+
+variable "hash_key" {
+  description = "Nombre del atributo clave de partición (hash key)"
+  type        = string
+  default     = "ProductID"
+}
+
+variable "sort_key" {
+  description = "Nombre del atributo clave de ordenación (sort key), vacío si no aplica"
+  type        = string
+  default     = ""
+}
+
+variable "billing_mode" {
+  description = "Modo de facturación: PAY_PER_REQUEST (On-Demand) o PROVISIONED"
+  type        = string
+  default     = "PAY_PER_REQUEST"
+}
+
+variable "read_capacity" {
+  description = "Capacidad de lectura si usas PROVISIONED"
+  type        = number
+  default     = 5
+}
+
+variable "write_capacity" {
+  description = "Capacidad de escritura si usas PROVISIONED"
+  type        = number
+  default     = 5
+}
+
+resource "aws_dynamodb_table" "this" {
+  name         = var.table_name
+  billing_mode = var.billing_mode
+
+  # Clave de partición (hash key)
+  hash_key = var.hash_key
+
+  # Si quieres sort key, y tu variable no está vacía:
+  dynamic "range_key" {
+    for_each = var.sort_key != "" ? [var.sort_key] : []
+    content {
+      range_key = range_key.value
+    }
+  }
+
+  attribute {
+    name = var.hash_key
+    type = "S"    # S = String; N = Number; B = Binary
+  }
+
+  # Solo si usas sort key
+  dynamic "attribute" {
+    for_each = var.sort_key != "" ? [var.sort_key] : []
+    content {
+      name = attribute.value
+      type = "S"
+    }
+  }
+
+  # Si usas PROVISIONED, define capacities:
+  provisioned_throughput {
+    read_capacity  = var.billing_mode == "PROVISIONED" ? var.read_capacity  : null
+    write_capacity = var.billing_mode == "PROVISIONED" ? var.write_capacity : null
+  }
+
+  tags = {
+    Environment = "dev"
+    Owner       = "ricardo"
+  }
+}
