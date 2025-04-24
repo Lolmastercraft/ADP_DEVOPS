@@ -103,9 +103,9 @@ resource "aws_route_table_association" "priv_association" {
 #======================CREACION DE GRUPOS DE SEGURIDAD======================
 
 #====================SG JUMP SERVER WINDOWS====================
-resource "aws_security_group" "SG-JS-WIN" {
+resource "aws_security_group" "SG_JS_WIN" {
     vpc_id = aws_vpc.vpc_pro.id
-    name = "SG-JS-WIN"
+    name = "SG_JS_WIN"
     description = "SG para jump server con OS Windows"
 
     #REGLAS DE ENTRADA==========
@@ -115,7 +115,7 @@ resource "aws_security_group" "SG-JS-WIN" {
         from_port = 3389
         to_port = 3389
         protocol = "tcp"
-        cidr_blocks = ["192.168.0.16"] #IPv4 de la pc
+        cidr_blocks = ["0.0.0.0/0"] #IPv4 de la pc
     }
     
     #REGLAS DE SALIDA==========
@@ -171,7 +171,7 @@ resource "aws_instance" "Win-JS" {
 
     subnet_id = aws_subnet.subred_pub.id
 
-    vpc_security_group_ids = [aws_security_group.SG-JS-WIN.id]
+    vpc_security_group_ids = [aws_security_group.SG_JS_WIN.id]
 
     associate_public_ip_address = true
 
