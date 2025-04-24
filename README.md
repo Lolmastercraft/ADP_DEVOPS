@@ -9,7 +9,8 @@ Tienda especializada en ventas de discos tipo vinilo.
 
 ---
 
-![screenshot](https://npr.brightspotcdn.com/42/0e/0e7bcf3645f09559c490def1b92f/untitled-design-2023-11-10t133231-110.png)
+![screenshot](![image](https://github.com/user-attachments/assets/fe5d3708-4d46-45cd-a884-ce609e1311dc)
+
 
 ---
 
