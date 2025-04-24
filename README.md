@@ -1,7 +1,7 @@
-# 🎯 Nombre del Proyecto
+# 🎯 KlangWerk
 
-¡Bienvenido a **Nombre del Proyecto**!  
-Una breve descripción de lo que hace tu proyecto y para quién está dirigido.
+¡Bienvenido a **KlangWerk**!  
+Tienda especializada en ventas de discos tipo vinilo.
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/usuario/repositorio)
 ![GitHub stars](https://img.shields.io/github/stars/usuario/repositorio?style=social)
@@ -11,7 +11,7 @@ Una breve descripción de lo que hace tu proyecto y para quién está dirigido.
 
 ## 📸 Captura de Pantalla
 
-![screenshot](./screenshots/main.png)
+![screenshot](https://npr.brightspotcdn.com/42/0e/0e7bcf3645f09559c490def1b92f/untitled-design-2023-11-10t133231-110.png)
 
 ---
 
