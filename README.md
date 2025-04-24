@@ -1,5 +1,5 @@
 <div align="center">
-# 🎶 KlangWerk
+## 🎶 KlangWerk
 
 ¡Bienvenido a **KlangWerk**!  
 Tienda especializada en ventas de discos tipo vinilo.
