@@ -9,7 +9,7 @@ Tienda especializada en ventas de discos tipo vinilo.
 
 ---
 
-![screenshot](![image](https://github.com/user-attachments/assets/fe5d3708-4d46-45cd-a884-ce609e1311dc))
+![screenshot](https://images.stockcake.com/public/c/4/6/c46478bb-0dda-47da-9dd7-35c7e4990eb3_large/vinyl-records-playing-stockcake.jpg)
 
 
 ---
