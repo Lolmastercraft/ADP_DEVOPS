@@ -1,4 +1,4 @@
-# 🎯 KlangWerk
+# 🎶 KlangWerk
 
 ¡Bienvenido a **KlangWerk**!  
 Tienda especializada en ventas de discos tipo vinilo.
@@ -9,8 +9,6 @@ Tienda especializada en ventas de discos tipo vinilo.
 
 ---
 
-## 📸 Captura de Pantalla
-
 ![screenshot](https://npr.brightspotcdn.com/42/0e/0e7bcf3645f09559c490def1b92f/untitled-design-2023-11-10t133231-110.png)
 
 ---
@@ -18,22 +16,18 @@ Tienda especializada en ventas de discos tipo vinilo.
 ## 🚀 Características
 
 ✅ Fácil de usar  
-✅ Rápido y ligero  
-✅ Diseño responsivo  
-✅ Integración con API  
-✅ Personalizable
+✅ Rápido y Seguro 
+✅ Discos en buen estado  
+✅ Precios competitivos  
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Equipo
 
-| Tecnología | Descripción |
-|------------|-------------|
-| HTML       | Estructura de la web |
-| CSS        | Estilos y diseño |
-| JavaScript | Funcionalidad del frontend |
-| Node.js    | Backend (si aplica) |
-| Express    | Framework backend |
-| DynamoDB   | Base de datos NoSQL |
-| AWS        | Despliegue en la nube |
+| Integrante | ROL | Descripción |
+|------------|-------------|-------------|
+| :octocat: Ricardo    | ING. Infraestructura | Creación del Terraform |
+| :godmode: Edson      | ING. Software | Automatización, creación de index.html y carrito.html |
+| :trollface: Luis       | ING. QA. | Frontend, backend y diesño de la base de datos |
+
 
