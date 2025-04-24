@@ -4,7 +4,7 @@
 ¡Bienvenido a **KlangWerk**!  
 Tienda especializada en ventas de discos tipo vinilo.
 
-![GitHub repo size](https://img.shields.io/github/repo-size/usuario/repositorio)
+![GitHub repo size](https://github.com/Lolmastercraft/ADP_DEVOPS.git)
 ![GitHub stars](https://img.shields.io/github/stars/usuario/repositorio?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/usuario/repositorio?style=social)
 
