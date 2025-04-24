@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinilos Clásicos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Colección de Discos de Vinilo</h1>
+        <nav><a href="carrito.html">Ver Carrito</a></nav>
+    </header>
+    <main>
+        <section class="vinyl-list">
+            <article class="vinyl-item" data-id="1" data-title="Tron – Daft Punk">
+                <img src="https://thesoundofvinyl.com/cdn/shop/products/tronlegacy2lp.png?v=1702468244&width=1200" alt="Tron">
+                <h2>Tron – Daft Punk</h2>
+                <button class="add-to-cart">Agregar al carrito</button>
+            </article>
+            <article class="vinyl-item" data-id="2" data-title="Thriller – Michael Jackson">
+                <img src="https://thesoundofvinyl.com/cdn/shop/files/SharedImage-135521.png?v=1743087487&width=800" alt="Thriller">
+                <h2>Thriller – Michael Jackson</h2>
+                <button class="add-to-cart">Agregar al carrito</button>
+            </article>
+            <article class="vinyl-item" data-id="3" data-title="Toxicity – System of a Down">
+                <img src="https://thesoundofvinyl.com/cdn/shop/files/VG_281_29_282_29_173eb795-ccda-40a7-baa4-bd059ee14907.png?v=1729683573&width=1200" alt="Thriller">
+                <h2>Toxicity – System of a Down</h2>
+                <button class="add-to-cart">Agregar al carrito</button>
+            </article>
+            <!-- Añade más discos siguiendo el mismo patrón -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Vinilos Clásicos</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', e => {
+                const item = e.target.closest('.vinyl-item');
+                const product = {
+                    id: item.dataset.id,
+                    title: item.dataset.title
+                };
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.push(product);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert(`“${product.title}” agregado al carrito`);
+            });
+        });
+    </script>
+</body>
+</html>

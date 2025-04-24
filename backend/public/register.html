@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crear Cuenta</title>
+  <link rel="stylesheet" href="css/register.css" />
+</head>
+<body>
+  <main class="register-container">
+    <form class="register-form">
+      <h1>Crear Cuenta</h1>
+
+      <label>
+        Nombre de usuario
+        <input type="text" name="username" placeholder="Tu nombre" required />
+      </label>
+
+      <label>
+        Correo electrónico
+        <input type="email" name="email" placeholder="tucorreo@ejemplo.com" required />
+      </label>
+
+      <label>
+        Contraseña
+        <input type="password" name="password" placeholder="••••••••" required />
+      </label>
+
+      <button type="submit">Registrarme</button>
+      <p>¿Ya tienes cuenta? <a href="login.html">Inicia Sesión</a></p>
+    </form>
+  </main>
+
+  <script>
+    const formR = document.querySelector('.register-form');
+    formR.addEventListener('submit', async e => {
+      e.preventDefault();
+      const username = formR.username.value.trim();
+      const email = formR.email.value.trim();
+      const password = formR.password.value;
+
+      // Llamamos al endpoint CRUD POST /users
+      const res = await fetch('http://localhost:3000/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, email, password })
+      });
+
+      const data = await res.json();
+      alert(data.message || data.error);
+
+      if (res.ok) {
+        // Redirigimos al login
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>
