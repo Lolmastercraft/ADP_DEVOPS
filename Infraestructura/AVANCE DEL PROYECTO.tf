@@ -56,7 +56,7 @@ resource "aws_route_table_association" "Asociaciones_Pro" {
 
 #====================SUBRED PRIVADA====================
 resource "aws_subnet" "subred_pri" {
-    vpc_id = aws_vpc.vpc_pro
+    vpc_id = aws_vpc.vpc_pro.id
     cidr_block = "10.14.0.0/24"
     map_public_ip_on_launch = false
 
