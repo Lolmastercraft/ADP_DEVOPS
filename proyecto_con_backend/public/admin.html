@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel de Administración</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <header>
+    <h1>👑 Panel Admin</h1>
+    <nav>
+      <a href="index.html">Tienda</a>
+      <a href="carrito.html">Carrito</a>
+      <a href="admin.html">Admin</a>
+      <a href="login.html">Cerrar Sesión</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="admin-panel">
+      <h2>Acciones de Administrador</h2>
+      <div class="actions">
+        <a href="#">Gestionar Productos</a>
+        <a href="#">Ver Pedidos</a>
+        <a href="#">Usuarios</a>
+        <a href="#">Ajustes</a>
+      </div>
+    </section>
+
+    <!-- 🔧 Bloque añadido para CRUD de usuarios -->
+    <section class="admin-panel">
+      <h2>Gestión de Usuarios</h2>
+      <table id="users-table">
+        <thead>
+          <tr><th>Email</th><th>Usuario</th><th>Acciones</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Vinilos Clásicos</p>
+  </footer>
+
+  <!-- 💻 Script para funcionalidad CRUD -->
+  <script>
+    const tbody = document.querySelector('#users-table tbody');
+
+    // 1️⃣ Cargar lista de usuarios
+    async function loadUsers() {
+      const res = await fetch('http://localhost:3000/users');
+      const users = await res.json();
+      tbody.innerHTML = users.map(u => `
+        <tr>
+          <td>${u.email}</td>
+          <td>${u.username}</td>
+          <td>
+            <button onclick="editUser('${u.email}')">✏️</button>
+            <button onclick="deleteUser('${u.email}')">🗑️</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // 2️⃣ Editar usuario
+    async function editUser(email) {
+      const newUser = prompt('Nuevo nombre de usuario:');
+      if (!newUser) return;
+      const res = await fetch('http://localhost:3000/users/' + encodeURIComponent(email), {
+        method: 'PUT',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ username: newUser })
+      });
+      const data = await res.json();
+      alert(data.message || data.error);
+      if (res.ok) loadUsers();
+    }
+
+    // 3️⃣ Eliminar usuario
+    async function deleteUser(email) {
+      if (!confirm('¿Eliminar usuario ' + email + '?')) return;
+      const res = await fetch('http://localhost:3000/users/' + encodeURIComponent(email), {
+        method: 'DELETE'
+      });
+      const data = await res.json();
+      alert(data.message || data.error);
+      if (res.ok) loadUsers();
+    }
+
+    // Iniciar
+    loadUsers();
+  </script>
+</body>
+</html>
