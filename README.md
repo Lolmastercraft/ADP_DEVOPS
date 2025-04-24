@@ -16,8 +16,11 @@ Tienda especializada en ventas de discos tipo vinilo.
 ## 🚀 Características
 
 ✅ Fácil de usar  
+
 ✅ Rápido y Seguro 
+
 ✅ Discos en buen estado  
+
 ✅ Precios competitivos  
 
 ---
