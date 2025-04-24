@@ -190,7 +190,7 @@ resource "aws_instance" "Lin-Web" {
 
     subnet_id = aws_subnet.subred_pri.id
 
-    vpc_security_group_ids = [aws_security_group.SG-LIN-WEB]
+    vpc_security_group_ids = [aws_security_group.SG-LIN-WEB.id]
 
     associate_public_ip_address = false
 
