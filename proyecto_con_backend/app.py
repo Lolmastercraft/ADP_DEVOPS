@@ -28,7 +28,7 @@ table = dynamodb.Table("Users")
 
 @app.route("/")
 def index():
-    return send_from_directory("public", "index.html")
+    return send_from_directory("public", "login.html")
 
 @app.route("/<path:path>")
 def static_proxy(path):
