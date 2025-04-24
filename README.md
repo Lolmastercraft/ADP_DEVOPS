@@ -36,7 +36,7 @@ Tienda especializada en ventas de discos tipo vinilo.
 | Integrante | ROL | Descripción |
 |------------|-------------|-------------|
 | :octocat: Ricardo    | ING. Infraestructura | Creación del Terraform |
-| 😎 Edson      | ING. Software | Automatización, creación de index.html y carrito.html |
-| 😈 Luis       | ING. QA. | Frontend, backend y diseño de la base de datos |
+| :godmode: Edson      | ING. Software | Automatización, creación de index.html y carrito.html |
+| :trollface: Luis       | ING. QA. | Frontend, backend y diseño de la base de datos |
 
 <div align="center">
